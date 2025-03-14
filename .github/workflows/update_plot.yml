@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install biopython pandas matplotlib
 
-   - name: Run script
+      - name: Run script
         run: |
           python script.py
           
