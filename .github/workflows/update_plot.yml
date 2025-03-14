@@ -1,0 +1,46 @@
+name: Update PubMed Plot
+
+on:
+  schedule:
+    - cron: '0 0 1 * *' # Esegue lo script il primo giorno di ogni mese
+  workflow_dispatch: # Consente esecuzione manuale
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install biopython pandas matplotlib
+
+      - name: Run script
+        env:
+          PUBMED_EMAIL: ${{ secrets.PUBMED_EMAIL }}
+        run: |
+          sed -i "s/your_email@example.com/${PUBMED_EMAIL}/g" script.py
+          python script.py
+
+      - name: Upload plot artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PubMed-plot
+          path: MC_PubMed_enhanced.png
+
+      - name: Update README with new plot
+        run: |
+          sed -i '/<!-- PLOT-START -->/,/<!-- PLOT-END -->/c\<!-- PLOT-START -->\n![Monte Carlo Plot](MC_PubMed_enhanced.png?raw=true)\n<!-- PLOT-END -->' README.md
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update PubMed Monte Carlo plot"
