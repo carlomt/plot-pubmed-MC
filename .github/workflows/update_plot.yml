@@ -5,6 +5,9 @@ on:
     - cron: '0 0 1 * *' # Esegue lo script il primo giorno di ogni mese
   workflow_dispatch: # Consente esecuzione manuale
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
