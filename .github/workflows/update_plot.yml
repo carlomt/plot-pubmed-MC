@@ -23,13 +23,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install biopython pandas matplotlib
 
-      - name: Run script
-        env:
-          PUBMED_EMAIL: ${{ secrets.PUBMED_EMAIL }}
-        run: |
-          sed -i "s/your_email@example.com/${PUBMED_EMAIL}/g" script.py
-          python script.py
-
       - name: Upload plot artifact
         uses: actions/upload-artifact@v4
         with:
