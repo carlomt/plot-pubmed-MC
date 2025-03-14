@@ -29,10 +29,6 @@ jobs:
           name: PubMed-plot
           path: MC_PubMed_enhanced.png
 
-      - name: Update README with new plot
-        run: |
-          sed -i '/<!-- PLOT-START -->/,/<!-- PLOT-END -->/c\<!-- PLOT-START -->\n![Monte Carlo Plot](MC_PubMed_enhanced.png?raw=true)\n<!-- PLOT-END -->' README.md
-
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
