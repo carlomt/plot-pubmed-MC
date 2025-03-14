@@ -28,6 +28,7 @@ jobs:
 
       - name: Run script
         run: |
+          rm pubmed_cache.json
           python plot.py
           
       - name: Upload plot artifact
