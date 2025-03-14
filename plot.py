@@ -5,9 +5,6 @@ import time
 import json
 import os
 
-# Set email for PubMed API
-Entrez.email = "your_email@example.com"
-
 # Function to fetch PubMed data
 def fetch_pubmed_data(query, year_from, year_to, cache_filename='pubmed_cache.json'):
     if os.path.exists(cache_filename):
