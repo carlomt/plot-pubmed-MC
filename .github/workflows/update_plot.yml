@@ -23,11 +23,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install biopython pandas matplotlib
 
+   - name: Run script
+        run: |
+          python script.py
+          
       - name: Upload plot artifact
         uses: actions/upload-artifact@v4
         with:
           name: PubMed-plot
-          path: MC_PubMed_enhanced.png
+          path: MC_PubMed.png
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5

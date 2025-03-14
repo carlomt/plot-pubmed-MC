@@ -89,7 +89,7 @@ plt.legend(loc='upper left', fontsize=12, frameon=True, shadow=True, borderpad=1
 plt.tight_layout()
 
 # Save plot to file
-plt.savefig('MC_PubMed_enhanced.png')
+plt.savefig('MC_PubMed.png')
 
 # Show plot
-plt.show()
+#plt.show()
