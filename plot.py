@@ -69,7 +69,7 @@ plt.grid(True, which='major', linestyle='--', linewidth=0.7, color='#cccccc') #l
 plt.grid(True, which='minor', linestyle='', linewidth=0)  # Disable minor grid
 
 # Customizing ticks to show fewer horizontal grid lines (two lines per tick label)
-plt.yticks(range(0, 201, 20))
+plt.yticks(range(0, 251, 20))
 
 # Formatting the plot
 plt.xlabel("Year", fontsize=16, fontweight='bold')
