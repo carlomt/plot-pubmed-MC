@@ -35,7 +35,7 @@ def fetch_pubmed_data(query, year_from, year_to, cache_filename='pubmed_cache.js
 
 # Fetch data for different Monte Carlo codes
 year_from = 1989
-year_to = 2024
+year_to = 2025
 
 geant4_data = fetch_pubmed_data("Geant4", year_from, year_to)
 fluka_data = fetch_pubmed_data("FLUKA", year_from, year_to)
