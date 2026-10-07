@@ -37,6 +37,9 @@ def fetch_pubmed_data(query, year_from, year_to, cache_filename='pubmed_cache.js
 year_from = 1989
 year_to = 2025
 
+# Plot estreme
+y_max = 250
+
 geant4_data = fetch_pubmed_data("Geant4", year_from, year_to)
 fluka_data = fetch_pubmed_data("FLUKA", year_from, year_to)
 mcnp_data = fetch_pubmed_data("MCNP", year_from, year_to)
@@ -69,14 +72,14 @@ plt.grid(True, which='major', linestyle='--', linewidth=0.7, color='#cccccc') #l
 plt.grid(True, which='minor', linestyle='', linewidth=0)  # Disable minor grid
 
 # Customizing ticks to show fewer horizontal grid lines (two lines per tick label)
-plt.yticks(range(0, 251, 20))
+plt.yticks(range(0, y_max+1, 20))
 
 # Formatting the plot
 plt.xlabel("Year", fontsize=16, fontweight='bold')
 plt.ylabel("Number of Publications", fontsize=16, fontweight='bold')
 plt.title("Publications related to Monte Carlo tools on PubMed", fontsize=18, fontweight='bold', pad=20)
 plt.xlim(year_from, year_to)
-plt.ylim(0, 200)
+plt.ylim(0, y_max)
 plt.xticks(range(year_from, year_to + 1, 5))
 
 # Legend inside the plot
